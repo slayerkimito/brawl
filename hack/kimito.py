@@ -8,26 +8,6 @@ import pyautogui
 import keyboard
 from datetime import datetime, timedelta
 
-# ---------------------------------------------
-# CREDENTIALS / AD LOCK (fake but keeps it free)
-# ---------------------------------------------
-LAST_AD_TIME = None
-AD_COOLDOWN = timedelta(hours=24)
-
-def show_ad():
-    print("[Zenith] Peep this 30‑sec ad to activate the sauce (simulated).")
-    for i in range(30, 0, -1):
-        print(f"[Ad] {i}s left...", end='\r')
-        time.sleep(1)
-    print("\n[Zenith] Ad done. You good to slay, fam!                ")
-    global LAST_AD_TIME
-    LAST_AD_TIME = datetime.now()
-
-def check_ad():
-    global LAST_AD_TIME
-    if LAST_AD_TIME is None or datetime.now() - LAST_AD_TIME > AD_COOLDOWN:
-        show_ad()
-
 # -------
 # SCREEN
 # -------
